@@ -7,4 +7,4 @@ A collection of my coding problem solutions (LeetCode, Codeforces, etc.), organi
 
 ## About
 
-I solve algorithmic challenges in multiple languages. Each solution includes a problem link and the code.
+I solve algorithmic challenges in multiple languages. Each solution includes the code.
