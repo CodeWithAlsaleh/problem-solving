@@ -33,6 +33,9 @@ public:
 
 // Code for fast & slow pointers:
 
+// When you detect a cycle (Reset one pointer to the start and move both pointers one step at a time — they meet at the cycle entry)
+// (you can reset slow or fast it doesn't matter cuz they both where at the same place when you detect a cycle)
+
 class Solution {
 public:
     bool isHappy(int n) {
