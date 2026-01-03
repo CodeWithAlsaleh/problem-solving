@@ -29,8 +29,8 @@ class Solution {
 
         int rowMask = encodeRow(prevRow), prevCharCode = encodePrevChar(prevChar);
 
-        if(~dp[i][j][prevCharCode][rowMask])
-         return dp[i][j][prevCharCode][rowMask];
+        if(~dp[j][prevCharCode][rowMask][i])
+         return dp[j][prevCharCode][rowMask][i];
 
         int sum = 0, newRow = j == 2 ? i + 1 : i;
 
@@ -64,17 +64,20 @@ class Solution {
             prevRow[j] = prevRowChar;
         }
 
-        return dp[i][j][prevCharCode][rowMask] = sum;
+        return dp[j][prevCharCode][rowMask][i] = sum;
     }
 public:
     int numOfWays(int n) {
         int ans = 0;
         string prevRow(3, 'X');
 
-        vector<vector<vector<vector<int>>>> dp(n, 
-        vector<vector<vector<int>>>(3, 
-        vector<vector<int>>(4, 
-        vector<int> (63, -1))));
+        // When u are using multiple vectors inside each other "vector<vector<vector ..etc" 
+        // always put the largest vector size at the end this makes the code much faster
+
+        vector<vector<vector<vector<int>>>> dp(3, 
+        vector<vector<vector<int>>>(4, 
+        vector<vector<int>>(63, 
+        vector<int> (n, -1))));
 
         ans = getNumberOfWays(0, 0, n, 'X', prevRow, dp);
 
